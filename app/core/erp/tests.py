@@ -24,3 +24,5 @@ from core.erp.models import Banco
 # obj = Banco.objects.filter(nombre__contains='O')
 # print(obj)
 #
+## FIN DEL COMENTARIO
+
