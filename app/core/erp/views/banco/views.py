@@ -28,6 +28,14 @@ class BancoListView(TemplateView):
                 banco.nombre = request.POST['nombre']
                 banco.detalle = request.POST['detalle']
                 banco.save()
+            elif action == 'edit':
+                banco = Banco.objects.get(pk=request.POST['id'])
+                banco.nombre = request.POST['nombre']
+                banco.detalle = request.POST['detalle']
+                banco.save()
+            elif action == 'delete':
+                banco = Banco.objects.get(pk=request.POST['id'])
+                banco.delete()
             else:
                 data['error'] = 'Invalid action'
         except Exception as e:

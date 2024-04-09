@@ -49,6 +49,29 @@ $(function () {
         $('#myModalBanco').modal('show');
     });
 
+    $('#data tbody').on('click' ,'a[rel="edit"]', function(){
+        modal_title.find('span').html('Edición de un Banco');
+        modal_title.find('i').removeClass().addClass('fas fa-edit');
+        var tr = tblBanco.cell( $ (this).closest('td, li')).index();
+        var data = tblBanco.row(tr.row).data();
+        $('input[name="action"]').val('edit');
+        $('input[name="id"]').val(data.id);
+        $('input[name="nombre"]').val(data.nombre);
+        $('input[name="detalle"]').val(data.detalle);
+        $('#myModalBanco').modal('show');
+
+    });
+    $('#data tbody').on('click' ,'a[rel="delete"]', function(){
+        var tr = tblBanco.cell( $ (this).closest('td, li')).index();
+        var data = tblBanco.row(tr.row).data();
+        var parameters = new FormData();
+        parameters.append('action', 'delete');
+        parameters.append('id', data.id);
+        submit_with_ajax(window.location.pathname, 'Notificación', '¿Estas seguro de eliminar el registro seleccionado?', parameters, function () {
+            tblBanco.ajax.reload();
+        });
+    });
+
         $('#myModalBanco').on('shown.bs.modal', function () {
         //$('form')[0].reset();
     });
