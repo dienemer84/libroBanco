@@ -5,20 +5,43 @@
     <script src="{% static 'cheque/js/list.js' %}"></script>
 {% endblock %}
 
+
 {% block columns %}
     <tr>
-        <th scope="col">Numero</th>
         <th scope="col">Banco</th>
-        <th scope="col">Proveedor</th>
-        <th scope="col">Valor $</th>
         <th scope="col">F. Emision</th>
         <th scope="col">F. Pago</th>
+        <th scope="col">Numero</th>
+        <th scope="col">OP</th>
+        <th scope="col">Proveedor</th>
+        <th scope="col">Comprobantes</th>
+        <th scope="col">Valor $</th>
         <th scope="col">F. Vto</th>
+        <th scope="col">Estado Pagado</th>
         <th scope="col">Acciones</th>
     </tr>
 {% endblock %}
 
 {% block rows %}
+    <div class="row">
+        <div class="col-0 offset-0">
+            <div class="float-left">
+                <select class="form-control m-2 idbyBanco">
+                    <option value="0">TODOS</option>
+                    <option value="1">BBVA ECHEQ</option>
+                    <option value="2">CIUDAD SANTANDER</option>
+                    <option value="3">CREDICOOP</option>
+                    <option value="4">FRANCES</option>
+                    <option value="5">HSBC</option>
+                    <option value="6">ICBC ECHEQ</option>
+                    <option value="7">PROVINCIA ECHEQ</option>
+                    <option value="8">PROVINCIA NO DIFERIDOS</option>
+                    <option value="9">PROVINCIA</option>
+                    <option value="10">SUPERVIELLE</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
 
@@ -26,12 +49,13 @@
     <a class="btn btn-primary btn-flat btnAdd" style="color: white;">
         <i class="fas fa-plus"></i> Nuevo Cheque
     </a>
-    <a href="{{ list_url }}" class="btn btn-success btn-flat btnTest">
+    <a href="{{ list_url }}" class="btn btn-success btn-flat btnTest" tooltip="Actualizar tabla">
         <i class="fas fa-sync"></i> Actualizar
     </a>
 {% endblock %}
 
 {% block javascript %}
+
 
 - Modal -->
 

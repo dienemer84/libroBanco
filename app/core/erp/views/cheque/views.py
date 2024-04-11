@@ -27,14 +27,23 @@ class ChequeListView(TemplateView):
                     # Obtener el nombre del banco
                     banco = Banco.objects.get(pk=cheque.banco_id)
                     cheque_dict['banco'] = banco.id
+
+                    cheque_dict['fecha_emision'] = cheque.fecha_emision
+                    cheque_dict['fecha_pago'] = cheque.fecha_pago
+                    cheque_dict['numero'] = cheque.numero
+                    cheque_dict['op'] = cheque.op
+
                     # Obtener la razón social del proveedor
                     proveedor = Proveedor.objects.get(pk=cheque.proveedor_id)
                     cheque_dict['proveedor'] = proveedor.id
 
+                    cheque_dict['comprobantes'] = cheque.comprobantes
+
                     cheque_dict['valor'] = cheque.valor
-                    cheque_dict['fecha_emision'] = cheque.fecha_emision
-                    cheque_dict['fecha_pago'] = cheque.fecha_pago
+
                     cheque_dict['fecha_vto'] = cheque.fecha_vto
+                    cheque_dict['pagado'] = cheque.pagado
+
                     data.append(cheque_dict)
             elif action == 'add':
                 cheque = Cheque()
@@ -42,6 +51,12 @@ class ChequeListView(TemplateView):
                 cheque.banco_id = request.POST['banco']
                 cheque.proveedor_id = request.POST['proveedor']
                 cheque.valor = request.POST['valor']
+                cheque.op = request.POST['op']
+                cheque.comprobantes = request.POST['comprobantes']
+                cheque.fecha_emision = request.POST['fecha_emision']
+                cheque.fecha_pago = request.POST['fecha_pago']
+                cheque.fecha_vto = request.POST['fecha_vto']
+
                 cheque.save()
             elif action == 'edit':
                 cheque = Cheque.objects.get(pk=request.POST['id'])
@@ -49,10 +64,20 @@ class ChequeListView(TemplateView):
                 cheque.banco_id = request.POST['banco']
                 cheque.proveedor_id = request.POST['proveedor']
                 cheque.valor = request.POST['valor']
+                cheque.op = request.POST['op']
+                cheque.comprobantes = request.POST['comprobantes']
+                cheque.fecha_emision = request.POST['fecha_emision']
+                cheque.fecha_pago = request.POST['fecha_pago']
+                cheque.fecha_vto = request.POST['fecha_vto']
+
                 cheque.save()
             elif action == 'delete':
                 cheque = Cheque.objects.get(pk=request.POST['id'])
                 cheque.delete()
+            elif action == 'update_pagado':
+                cheque = Cheque.objects.get(pk=request.POST['id'])
+                cheque.pagado = request.POST.get('pagado') == 'true'
+                cheque.save()
             else:
                 data['error'] = 'Ha ocurrido un error'
         except Exception as e:

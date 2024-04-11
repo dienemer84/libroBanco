@@ -23,7 +23,6 @@ class Proveedor(models.Model):
 class Banco(models.Model):
     nombre = models.CharField(max_length=150, verbose_name='Nombre')
     detalle = models.CharField(max_length=200, verbose_name='Detalle')
-
     def __str__(self):
         return self.nombre
 
@@ -35,15 +34,17 @@ class Banco(models.Model):
 
 
 class Cheque(models.Model):
-    numero = models.CharField(max_length=150, verbose_name='Numero')
     banco = models.ForeignKey(Banco, on_delete=models.CASCADE)
-    proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
-    fecha_ingreso = models.DateField(auto_now_add=True, verbose_name='Fecha de Ingreso')
-    fecha_actualizacion = models.DateField(auto_now_add=True, verbose_name='Fecha de Actualización')
     fecha_emision = models.DateField(default=datetime.now, verbose_name='Fecha de Emisión')
     fecha_pago = models.DateField(default=datetime.now, verbose_name='Fecha de Pago')
-    fecha_vto = models.DateField(default=datetime.now, verbose_name='Fecha de Vencimiento')
+    numero = models.CharField(max_length=150, verbose_name='Numero')
+    op = models.CharField(max_length=150, verbose_name='OP')
+    proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
+    comprobantes = models.CharField(max_length=150, verbose_name='Comprobantes')
     valor = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
+    fecha_vto = models.DateField(default=datetime.now, verbose_name='Fecha de Vencimiento')
+    fecha_ingreso = models.DateField(auto_now_add=True, verbose_name='Fecha de Ingreso')
+    fecha_actualizacion = models.DateField(auto_now_add=True, verbose_name='Fecha de Actualización')
     pagado = models.BooleanField(default=False)
 
     def __str__(self):

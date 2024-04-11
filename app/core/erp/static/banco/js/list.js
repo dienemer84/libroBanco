@@ -24,8 +24,8 @@ function getData(){
                 class: 'text-center',
                 orderable: false,
                 render: function (data, type, row){
-                var buttons = '<a href="#" rel="edit" class="btn btn-warning btn-xs btn-flat"><i class="fas fa-edit" style="font-size: 10px; padding: 10px"></i></a>   ';
-                    buttons += '<a href="#" rel="delete" class="btn btn-danger btn-xs btn-flat"><i class="fas fa-trash-alt" style="font-size: 10px; padding: 10px"></i></a>   ';
+                var buttons = '<a href="#" rel="edit" class="btn btn-warning btn-xs btn-flat" title="Editar"><i class="fas fa-edit" style="font-size: 12px; padding: 10px"></i></a>   ';
+                    buttons += '<a href="#" rel="delete" class="btn btn-danger btn-xs btn-flat" title="Eliminar"><i class="fas fa-trash-alt" style="font-size: 12px; padding: 10px"></i></a>   ';
                     return buttons;
                 }
             },
