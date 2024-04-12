@@ -7,31 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b296f34-9c4c-48f5-be0e-5a80642817fd" name="Changes" comment="Prueba 2">
-      <change beforePath="$PROJECT_DIR$/.idea/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/app.iml" afterDir="false" />
+    <list default="true" id="6b296f34-9c4c-48f5-be0e-5a80642817fd" name="Changes" comment="Prueba 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/migrations/0003_empleado_genero.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/migrations/0004_remove_cheque_banco_banco.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/migrations/0005_alter_banco_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/migrations/0006_proveedor_rename_empleado_employable.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/migrations/0007_rename_proveedor_proved_cheque_proveedor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/migrations/0008_remove_banco_cheque_cheque_banco.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/migrations/0011_banco_detalle.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/migrations/0012_banco_fecha_alta.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/migrations/0013_remove_banco_fecha_alta_banco_fecha_ingreso.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/migrations/0014_alter_banco_fecha_ingreso.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/migrations/0015_remove_banco_fecha_ingreso.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/erp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/static/banco/js/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/erp/static/banco/js/list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/static/cheque/js/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/erp/static/cheque/js/list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/static/proveedor/js/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/erp/static/proveedor/js/list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/templates/banco/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/erp/templates/banco/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/templates/cheque/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/erp/templates/cheque/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/erp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/erp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/erp/views/cheque/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/erp/views/cheque/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/homepage/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/homepage/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/vtc/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/vtc/sidebar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +211,10 @@
       <workItem from="1712598122779" duration="8830000" />
       <workItem from="1712662487013" duration="12691000" />
       <workItem from="1712748987123" duration="13657000" />
-      <workItem from="1712837117678" duration="2456000" />
+      <workItem from="1712837117678" duration="3273000" />
+      <workItem from="1712855557056" duration="1034000" />
+      <workItem from="1712860629318" duration="3166000" />
+      <workItem from="1712867567469" duration="619000" />
     </task>
     <task id="LOCAL-00001" summary="Prueba">
       <created>1685717795742</created>
@@ -277,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712669109811</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Prueba 3">
+      <created>1712852470974</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1712852470974</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +286,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Prueba" />
     <MESSAGE value="Prueba 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prueba 2" />
+    <MESSAGE value="Prueba 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prueba 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -331,7 +320,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/app$views.coverage" NAME="views Coverage Results" MODIFIED="1708695358421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core/erp/views/cheque" />
-    <SUITE FILE_PATH="coverage/app$core.coverage" NAME="core Coverage Results" MODIFIED="1712851843796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/app$core.coverage" NAME="core Coverage Results" MODIFIED="1712863830752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/app$tests.coverage" NAME="tests Coverage Results" MODIFIED="1698943740872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core/erp" />
     <SUITE FILE_PATH="coverage/app$manage.coverage" NAME="core Coverage Results" MODIFIED="1698952821351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

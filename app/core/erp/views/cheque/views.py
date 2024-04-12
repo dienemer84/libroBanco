@@ -26,7 +26,9 @@ class ChequeListView(TemplateView):
 
                     # Obtener el nombre del banco
                     banco = Banco.objects.get(pk=cheque.banco_id)
-                    cheque_dict['banco'] = banco.id
+
+                    cheque_dict['banco_id'] = banco.id
+                    cheque_dict['banco'] = banco.nombre
 
                     cheque_dict['fecha_emision'] = cheque.fecha_emision
                     cheque_dict['fecha_pago'] = cheque.fecha_pago
@@ -35,7 +37,9 @@ class ChequeListView(TemplateView):
 
                     # Obtener la razón social del proveedor
                     proveedor = Proveedor.objects.get(pk=cheque.proveedor_id)
-                    cheque_dict['proveedor'] = proveedor.id
+
+                    cheque_dict['proveedor_id'] = proveedor.id
+                    cheque_dict['proveedor'] = proveedor.razonsocial
 
                     cheque_dict['comprobantes'] = cheque.comprobantes
 
@@ -45,6 +49,7 @@ class ChequeListView(TemplateView):
                     cheque_dict['pagado'] = cheque.pagado
 
                     data.append(cheque_dict)
+
             elif action == 'add':
                 cheque = Cheque()
                 cheque.numero = request.POST['numero']
@@ -59,6 +64,7 @@ class ChequeListView(TemplateView):
 
                 cheque.save()
             elif action == 'edit':
+
                 cheque = Cheque.objects.get(pk=request.POST['id'])
                 cheque.numero = request.POST['numero']
                 cheque.banco_id = request.POST['banco']
