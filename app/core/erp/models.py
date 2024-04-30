@@ -17,7 +17,7 @@ class Proveedor(models.Model):
         verbose_name = 'Proveedor'
         verbose_name_plural = 'Proveedores'
         db_table = 'proveedor'
-        ordering = ['id']
+        ordering = ['razonsocial']
 
 
 class Banco(models.Model):
@@ -52,13 +52,10 @@ class Cheque(models.Model):
 
     def toJSON(self):
         item = model_to_dict(self)
-        item['banco'] = self.banco.nombre
-        item['proveedor'] = self.proveedor.razonsocial
-        item['fecha_ingreso'] = self.fecha_ingreso.strftime('%d-%m-%Y')
-        item['fecha_actualizacion'] = self.fecha_actualizacion.strftime('%d-%m-%Y')
-        item['fecha_emision'] = self.fecha_emision.strftime('%d-%m-%Y')
-        item['fecha_pago'] = self.fecha_pago.strftime('%d-%m-%Y')
-        item['fecha_vto'] = self.fecha_vto.strftime('%d-%m-%Y')
+        item['banco_id'] = self.banco.id
+        item['banco_nombre'] = self.banco.nombre
+        item['proveedor_id'] = self.proveedor.id
+        item['proveedor_nombre'] = self.proveedor.nombre
         return item
 
     class Meta:

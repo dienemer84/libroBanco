@@ -7,6 +7,8 @@ from core.login.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
+from app.core.login.views import LoginFormView
+
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('erp/', include('core.erp.urls')),

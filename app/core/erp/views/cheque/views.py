@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
@@ -23,29 +25,22 @@ class ChequeListView(TemplateView):
                 data = []
                 for cheque in Cheque.objects.all():
                     cheque_dict = model_to_dict(cheque)
-
+                    banco = Banco.objects.get(pk=cheque.banco_id)
+                    cheque_dict['banco_id'] = banco.id
                     # Obtener el nombre del banco
                     banco = Banco.objects.get(pk=cheque.banco_id)
-
-                    cheque_dict['banco_id'] = banco.id
-                    cheque_dict['banco'] = banco.nombre
-
-                    cheque_dict['fecha_emision'] = cheque.fecha_emision
-                    cheque_dict['fecha_pago'] = cheque.fecha_pago
+                    cheque_dict['banco_nombre'] = banco.nombre
+                    cheque_dict['fecha_emision'] = cheque.fecha_emision.strftime('%d-%m-%Y')
+                    cheque_dict['fecha_pago'] = cheque.fecha_pago.strftime('%d-%m-%Y')
                     cheque_dict['numero'] = cheque.numero
                     cheque_dict['op'] = cheque.op
-
                     # Obtener la razón social del proveedor
                     proveedor = Proveedor.objects.get(pk=cheque.proveedor_id)
-
                     cheque_dict['proveedor_id'] = proveedor.id
-                    cheque_dict['proveedor'] = proveedor.razonsocial
-
+                    cheque_dict['proveedor_nombre'] = proveedor.razonsocial
                     cheque_dict['comprobantes'] = cheque.comprobantes
-
                     cheque_dict['valor'] = cheque.valor
-
-                    cheque_dict['fecha_vto'] = cheque.fecha_vto
+                    cheque_dict['fecha_vto'] = cheque.fecha_vto.strftime('%d-%m-%Y')
                     cheque_dict['pagado'] = cheque.pagado
 
                     data.append(cheque_dict)
@@ -58,28 +53,36 @@ class ChequeListView(TemplateView):
                 cheque.valor = request.POST['valor']
                 cheque.op = request.POST['op']
                 cheque.comprobantes = request.POST['comprobantes']
-                cheque.fecha_emision = request.POST['fecha_emision']
-                cheque.fecha_pago = request.POST['fecha_pago']
-                cheque.fecha_vto = request.POST['fecha_vto']
+                cheque.fecha_emision = datetime.strptime(request.POST['fecha_emision'], '%d-%m-%Y').strftime('%Y-%m-%d')
+                cheque.fecha_pago = datetime.strptime(request.POST['fecha_pago'], '%d-%m-%Y').strftime('%Y-%m-%d')
+                cheque.fecha_vto = datetime.strptime(request.POST['fecha_vto'], '%d-%m-%Y').strftime('%Y-%m-%d')
 
                 cheque.save()
+
             elif action == 'edit':
 
+                # Aca trae los datos que ya esten pre cargados
+
                 cheque = Cheque.objects.get(pk=request.POST['id'])
+
+                # Aca toma los datos cargados y los guarda
+
                 cheque.numero = request.POST['numero']
                 cheque.banco_id = request.POST['banco']
                 cheque.proveedor_id = request.POST['proveedor']
                 cheque.valor = request.POST['valor']
                 cheque.op = request.POST['op']
                 cheque.comprobantes = request.POST['comprobantes']
-                cheque.fecha_emision = request.POST['fecha_emision']
-                cheque.fecha_pago = request.POST['fecha_pago']
-                cheque.fecha_vto = request.POST['fecha_vto']
+                cheque.fecha_emision = datetime.strptime(request.POST['fecha_emision'], '%d-%m-%Y').strftime('%Y-%m-%d')
+                cheque.fecha_pago = datetime.strptime(request.POST['fecha_pago'], '%d-%m-%Y').strftime('%Y-%m-%d')
+                cheque.fecha_vto = datetime.strptime(request.POST['fecha_vto'], '%d-%m-%Y').strftime('%Y-%m-%d')
 
                 cheque.save()
             elif action == 'delete':
                 cheque = Cheque.objects.get(pk=request.POST['id'])
                 cheque.delete()
+
+
             elif action == 'update_pagado':
                 cheque = Cheque.objects.get(pk=request.POST['id'])
                 cheque.pagado = request.POST.get('pagado') == 'true'

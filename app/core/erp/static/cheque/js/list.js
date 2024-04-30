@@ -14,12 +14,14 @@ function getData(){
             dataSrc: ""
         },
         columns: [
-            {"data": "banco"},
+            {"data": "banco_id"},
+            {"data": "banco_nombre"},
             {"data": "fecha_emision"},
             {"data": "fecha_pago"},
             {"data": "numero"},
             {"data": "op"},
-            {"data": "proveedor"},
+            {"data": "proveedor_id"},
+            {"data": "proveedor_nombre"},
             {"data": "comprobantes"},
             {"data": "valor"},
             {"data": "fecha_vto"},
@@ -30,6 +32,9 @@ function getData(){
             {
                 targets: [0, 1, 2, 3, 8, 9], // Índice de la columna booleana
                 class: 'text-center', // Formato centrado
+
+                targets: [0, 6], // Índices de las columnas que deseas ocultar
+                visible: false, // Oculta las columnas especificadas
             },
             {
                 targets: [-1],
@@ -69,6 +74,9 @@ $(function () {
         $('#myModalCheque').modal('show');
 
     });
+
+
+
     $('.idbyBanco').on('change', function () {
         var selectedValue = $(this).val(); // Obtener el valor seleccionado
 
@@ -90,6 +98,7 @@ $(function () {
         modal_title.find('i').removeClass().addClass('fas fa-edit');
         var tr = tblCheque.cell( $ (this).closest('td, li')).index();
         var data = tblCheque.row(tr.row).data();
+
         console.log(data);
         $('input[name="action"]').val('edit');
         $('input[name="id"]').val(data.id);
@@ -97,6 +106,8 @@ $(function () {
         $('select[name="banco"]').val(data.banco);
         $('select[name="proveedor"]').val(data.proveedor);
         $('input[name="valor"]').val(data.valor);
+        $('input[name="op"]').val(data.op);
+        $('input[name="comprobantes"]').val(data.comprobantes);
         $('input[name="fecha_emision"]').val(data.fecha_emision);
         $('input[name="fecha_pago"]').val(data.fecha_pago);
         $('input[name="fecha_vto"]').val(data.fecha_vto);
@@ -142,6 +153,7 @@ $(function () {
     });
 
         $('.filterbyBanco').on('click', function () {
+
 
     });
 
